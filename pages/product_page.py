@@ -16,10 +16,10 @@ class ProductPage(BasePage):
     def should_be_product_name_match(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         p_name = self.browser.find_elements(By.CSS_SELECTOR, '.alertinner')[0].find_element_by_tag_name('strong').text
-        assert product_name == p_name, 'Product names do not match'
+        assert product_name == p_name, f'Product names do not match. Expected: {product_name}, got {p_name}'
 
     def should_be_product_price_match(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         p_price = self.browser.find_elements(By.CSS_SELECTOR, '.alertinner')[2].find_element_by_tag_name('strong').text
-        assert product_price == p_price, 'Product names do not match'
+        assert product_price == p_price, f'Prices do not match. Expected: {product_price}, got {p_price}'
 
